@@ -1,11 +1,11 @@
 [build]
-  # Explicitly build from the root context
-  command = "cd frontend && npm install && npm run build"
+  # CI=false prevents warnings from failing the build
+  command = "npm install && CI=false npm run build"
   
-  # Point to the resulting build folder relative to the root
-  publish = "frontend/build"
+  # The folder where the built files live
+  publish = "build"
 
-# This handles the "Page Not Found" (404) errors for React Router
+# Handles React Router sub-pages (404 errors)
 [[redirects]]
   from = "/*"
   to = "/index.html"
